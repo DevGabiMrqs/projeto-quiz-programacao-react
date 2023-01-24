@@ -13,3 +13,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </QuizProvider>
   </React.StrictMode>,
 )
+
+
+//render está renderizando o App, e todo esse conteúdo está sendo colocado na root/raiz do projeto
+//e dentro do App.jsx tem todo o conteúdo do projeto
+//no React não tem necessidade de colocar a extensão do arquivo no Componente, ou seja App.jsx somente App

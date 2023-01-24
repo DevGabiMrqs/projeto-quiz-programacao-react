@@ -2,12 +2,17 @@ import { createContext, useReducer } from "react";
 
 
 
+
+
 //criar um const que vai determinar os estados do jogo
 const STAGES = ["Start", "Playing", "End"]
 
 const initialState = {
     gameStage : STAGES[0]
 }
+
+
+
 
 //Com o reducer eu controlo o estado do jogo e posso passar uma ação
 const quizReducer = (state, action) => {
