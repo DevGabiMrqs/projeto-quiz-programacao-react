@@ -15,22 +15,28 @@ const initialState = {
 
 
 //Com o reducer eu controlo o estado do jogo e posso passar uma ação
+//spread no state, pois consigo utilizar o estado anterior e passar o novo stage do game, que nesse caso é o playing.
 const quizReducer = (state, action) => {
     console.log(state, action);
 
     switch(action.type) {
         case "CHANGE_STATE":
-            return state;
-        default:
-            return state;
+            return{
+                ...state,
+                gameStage : STAGES[1],
+                currentQuestion: 0,
+            }; 
+
+            default:
+                return state;
     }
 }
 
 
-
+//currenteQuestion: 0, começo com justamente pára acessar o array de perguntas. Os arrays, são baseados em zeros. 
 // para inicializar criamos o quizContext e adicionamos o hook createContext
-export const QuizContext = createContext();
 
+export const QuizContext = createContext();
 
 export const QuizProvider = ({children}) => {
     const value = useReducer(quizReducer, initialState);

@@ -13,15 +13,14 @@ function App() {
   return (
     <div className="App">
       <h1>Quiz de Programação</h1>
-      <Welcome/>
-      {quizState.gameState === "Start" && <Welcome/>}   
-      {quizState.gameState === "Playing" && <Questions/>}     
+      {quizState.gameStage === "Start" && <Welcome/>}   
+      {quizState.gameStage === "Playing" && <Questions/>}
     </div>
   )
 }
 
-//Se o state do game for "start" eu passo eu passo o componente Welcome que irá renderizar a página do file welcome.
-//Se o state do game for "playing" eu passo o componente Questions 
+//Se o stage do game for "start" eu passo o componente Welcome que irá renderizar a página do file welcome.
+//Se o stage do game for "playing" eu passo o componente Questions 
 
 
 export default App
