@@ -1,3 +1,4 @@
+//primeiro componente quando a aplicação começa
 //react, components, estaticos
 
 import { useContext } from 'react';
@@ -5,10 +6,16 @@ import './App.css';
 import Questions from './components/Questions';
 import { QuizContext } from './context/quiz';
 import Welcome from './components/Welcome';
+import { useEffect } from 'react';
 
 
 function App() {
   const [quizState, dispatch] = useContext(QuizContext);
+
+//embaralhar as perguntas, fazendo tudo no reducer.
+  useEffect(() => {
+    dispatch({type:"REORDER_QUESTIONS"});
+  }, [])
 
   return (
     <div className="App">
