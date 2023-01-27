@@ -1,5 +1,4 @@
 import { createContext, useReducer } from "react";
-// import questions from '../data/questions.js'
 
 
 //criar um const que vai determinar os estados do jogo
@@ -38,7 +37,7 @@ const initialState = {
     gameStage : STAGES[0],
     questions: data,
     currentQuestion: 0,
-}
+};
 
 //esse questions está sendo importado do folder data e sendo utilizado para passar as questões
 
@@ -55,23 +54,34 @@ const quizReducer = (state, action) => {
             gameStage : STAGES[1],
         }; 
 
-        case "REORDER_QUESTIONS":
-            const reoderedQuestions = question.sort(() => {
-                return Math.random() - 0,5;
-            });
+        case "CHANGE_QUESTION":
+        const nextQuestion = state.currentQuestion +1;
+        let endGame = false;
 
-            return {
-                ...state,
-                question: reoderedQuestions
-            }
+        if(!questions[nextQuestion]) {
+            endGame = true;
+        }
+
+        return{
+            ...state,
+            currentQuestion:nextQuestion,
+            gameStage: endGame ? STAGES[2] : state.gameStage,
+        };
 
             default:
                 return state;
     }
 }
 
+//Para mudar as questões passei no case changequestions e no onclick tb usando o dispatch, depois criei,
+// uma const para pegar o estado das questões atuaiz e acrescentei +1 para ir para a próxima questão.
+// depois dou o return com o spread atual do state, e passo a nextQuestion como atributo para puxar as próximas questões.
+// passo um let endGame, pois quando clico até a quarta questão da erro.
+//Então passo o verificador (!) se nas questões houver a nextquestion eu passo o endGame.
 
-//currenteQuestion: 0, começo com justamente pára acessar o array de perguntas. Os arrays, são baseados em zeros. 
+
+
+//currentQuestion: 0, começo com justamente para acessar o array de perguntas. Os arrays, são baseados em zeros. 
 // para inicializar criamos o quizContext e adicionamos o hook createContext
 
 export const QuizContext = createContext();
