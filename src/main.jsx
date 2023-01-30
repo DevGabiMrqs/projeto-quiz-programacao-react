@@ -4,6 +4,7 @@ import App from './App'
 import './index.css'
 import { QuizProvider } from './context/quiz'
 import { QuizContext } from './context/quiz'
+import GameOver from './components/GameOver'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -37,6 +37,8 @@ const initialState = {
     gameStage : STAGES[0],
     questions: data,
     currentQuestion: 0,
+    score: 0,
+    answerSelected: false,
 };
 
 //esse questions está sendo importado do folder data e sendo utilizado para passar as questões
@@ -58,7 +60,7 @@ const quizReducer = (state, action) => {
         const nextQuestion = state.currentQuestion +1;
         let endGame = false;
 
-        if(!questions[nextQuestion]) {
+        if(!question[nextQuestion]) {
             endGame = true;
         }
 
@@ -68,17 +70,35 @@ const quizReducer = (state, action) => {
             gameStage: endGame ? STAGES[2] : state.gameStage,
         };
 
+        case "NEW_GAME":
+            return initialState;
+
+
+        case "CHECK_ANSWER":
+            if(state.answerSelected) return state;
+
+            const answer = action.payload.answer
+            const option = action.payload.option
+            let correctAnswer = 0
+
+            if(answer === option) correctAnswer = 1;
+
+            return {
+                ...state,
+                score: state.score + correctAnswer,
+                answerSelected: option,
+            }
+
             default:
                 return state;
     }
 }
 
 //Para mudar as questões passei no case changequestions e no onclick tb usando o dispatch, depois criei,
-// uma const para pegar o estado das questões atuaiz e acrescentei +1 para ir para a próxima questão.
-// depois dou o return com o spread atual do state, e passo a nextQuestion como atributo para puxar as próximas questões.
-// passo um let endGame, pois quando clico até a quarta questão da erro.
-//Então passo o verificador (!) se nas questões houver a nextquestion eu passo o endGame.
-
+//uma const para pegar o estado das questões atuaiz e acrescentei +1 para ir para a próxima questão.
+//depois dou o return com o spread atual do state, e passo a nextQuestion como atributo para puxar as próximas questões.
+//passo um let endGame, pois quando clico até a quarta questão da erro.
+//Então passo o verificador (!) se o endGame for true eu passo STAGES2 caso não, passo estado atual do game.
 
 
 //currentQuestion: 0, começo com justamente para acessar o array de perguntas. Os arrays, são baseados em zeros. 
