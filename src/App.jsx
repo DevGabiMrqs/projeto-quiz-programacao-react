@@ -2,7 +2,7 @@
 //react, components, estaticos
 
 import { QuizContext } from './context/quiz';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import './App.css';
 
@@ -13,6 +13,10 @@ import GameOver from './components/GameOver';
 
 function App() {
   const [quizState, dispatch] = useContext(QuizContext);
+
+  useEffect(() => {
+    dispatch({type:"REODER_QUESTIONS"})
+  }, [])
 
   return (
     <div className="App">

@@ -2,8 +2,6 @@ import { useContext } from 'react';
 import { QuizContext } from '../context/quiz';
 
 import welldone from '../img/welldone.svg';
-
-
 import './GameOver.css';
 
 const GameOver = () => {

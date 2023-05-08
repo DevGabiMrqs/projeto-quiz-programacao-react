@@ -10,3 +10,13 @@
 .option:hover {
     opacity: 1;
 }
+
+.correct {
+    background-color: rgb(21, 202, 21);
+    font-weight: bold;
+}
+
+.wrong {
+    background-color: rgb(215, 28, 28);
+    opacity: 0.4;
+}

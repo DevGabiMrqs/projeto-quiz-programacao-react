@@ -13,11 +13,12 @@ const data = [
     {
         question: "Com qual instrução declaramos uma constante em JavaScript",
         options:["let", "var", "const", "casseta"],
-        answer:"const"
+        answer:"const",
     },
     {
         question: "Qual dos tipos de dados a seguir não existe em JavaScript?",
-        options: ["string", "number", "boolean", "float"]
+        options: ["string", "number", "boolean", "float"],
+        answer: "float",
     },
     {
         question: "Qual dos métodos a seguir seleciona um elemento?",

@@ -43,7 +43,6 @@ const Questions = () => {
 //utilizo a props option para passar as opções, a key, para passar os valores
 //a props answer é a resposta da questão atual
 //selectOption, quando eu dar o clique a função selecionada deve demonstrar a opção correta.
-//dentro do onSelectOption eu passo a 
 
 
 export default Questions
